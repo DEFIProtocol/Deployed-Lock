@@ -35,9 +35,9 @@ function MenuItems() {
         }}
         defaultSelectedKeys={[pathname]}
       >
-        <Menu.Item key="/">
+        <Menu.Item key="/Home">
           <NavLink
-            to="/"
+            to="/Home"
             style={{ marginLeft: "0px", marginRight: "15px", float: "left" }}
           >
             <h1 style={{ color: "lime", display: "inline-block" }}>grid</h1>
