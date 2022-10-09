@@ -186,4 +186,3 @@ export const Logo = () => (
 );
 
 export default App;
-
