@@ -102,10 +102,6 @@ const App = () => {
               </Route>
             )}
 
-            <Route>
-              <LandingPage path="/" />
-            </Route>
-
             <Route path="/wallet">
               <Wallet />
             </Route>
@@ -120,6 +116,10 @@ const App = () => {
 
             <Route path="/:token?/:address?">
               <Token />
+            </Route>
+
+            <Route>
+              <LandingPage path exact="/" />
             </Route>
           </Switch>
         </div>
@@ -186,3 +186,4 @@ export const Logo = () => (
 );
 
 export default App;
+
