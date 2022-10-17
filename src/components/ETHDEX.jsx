@@ -1,5 +1,5 @@
 // favorites list into one component
-import "./tokenIndex.css"
+import "./tokenIndex.css";
 import { Link } from "react-router-dom";
 import { Card } from "antd";
 import { StarOutlined, StarFilled } from "@ant-design/icons";
@@ -91,48 +91,48 @@ function ETHDEX() {
         {!tokens
           ? null
           : tokens
-            .filter((val) => {
-              if (query == "") {
-                return val;
-              } else {
-                return val.Name.toLowerCase().includes(query.toLowerCase());
-                //  && val.Symbol.toLowerCase().includes(query.toLowerCase());
-              }
-            })
-            .map((token, index) => (
-              <div className="cardContainer" key={index}>
-                <Card className="daoCard">
-                  <Link to={`/${token.Name}/${token.Address}`}>
-                    <div style={{ display: "flex", alignItems: "center" }}>
-                      <img className="logo" src={token.Logo} alt="noLogo" />
-                      <div>
-                        <h4 className="name">{token.Name}</h4>
-                        <span className="symbol">{token.Symbol}</span>
+              .filter((val) => {
+                if (query == "") {
+                  return val;
+                } else {
+                  return val.Name.toLowerCase().includes(query.toLowerCase());
+                  //  && val.Symbol.toLowerCase().includes(query.toLowerCase());
+                }
+              })
+              .map((token, index) => (
+                <div className="cardContainer" key={index}>
+                  <Card className="daoCard">
+                    <Link to={`/${token.Name}/${token.Address}`}>
+                      <div style={{ display: "flex", alignItems: "center" }}>
+                        <img className="logo" src={token.Logo} alt="noLogo" />
+                        <div>
+                          <h4 className="name">{token.Name}</h4>
+                          <span className="symbol">{token.Symbol}</span>
+                        </div>
+                        <div>
+                          <span className="type">
+                            {token.Type == null ? "--" : token.Type}
+                          </span>
+                          <span className="lastPrice">
+                            {token.LastPrice == null ? "--" : token.LastPrice}
+                          </span>
+                        </div>
                       </div>
-                      <div>
-                        <span className="type">
-                          {token.Type == null ? "--" : token.Type}
-                        </span>
-                        <span className="lastPrice">
-                          {token.LastPrice == null ? "--" : token.LastPrice}
-                        </span>
-                      </div>
-                    </div>
-                  </Link>
-                  {watchlist.includes(token.Address) ? (
-                    <StarFilled
-                      className="favorites"
-                      onClick={() => removeWatchlist(token.Address)}
-                    />
-                  ) : (
-                    <StarOutlined
-                      className="favorites"
-                      onClick={() => addWatchlist(token.Address)}
-                    />
-                  )}
-                </Card>
-              </div>
-            ))}
+                    </Link>
+                    {watchlist.includes(token.Address) ? (
+                      <StarFilled
+                        className="favorites"
+                        onClick={() => removeWatchlist(token.Address)}
+                      />
+                    ) : (
+                      <StarOutlined
+                        className="favorites"
+                        onClick={() => addWatchlist(token.Address)}
+                      />
+                    )}
+                  </Card>
+                </div>
+              ))}
       </div>
     </div>
   );
